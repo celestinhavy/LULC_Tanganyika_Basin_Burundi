@@ -1,2 +1,15 @@
-# Land Use/Cover within the Lake Tanganyika Basin
-This repository provides supplementary materials supporting the assesment and predictive modelling of land use/cover change impacts on habitat quality and cultural ecosystem services in the Lake Tanganyika Basin, Burundi.
+**Spatial Prioritization for Sustainable Freshwater Basin Management – Reproducibility Workflow**
+
+This repository provides a fully reproducible workflow for LULC change analysis, chord diagram visualisation, spatial prioritisation (Protection Core, Restoration Hotspot, Sustainable Use zones for 2030 and 2040), and One‑At‑a‑Time (OAT) sensitivity analysis of key model parameters. All geospatial data are clipped to the study area, harmonised to a common grid, and provided in consistent coordinate systems.
+
+**Repository structure.** Input data are organised into two main folders. `PLUS_Projection_and_Prioritization_Input_Data` contains base rasters for the PLUS model (constraint layers, driving factors, historical LULC maps for 2000–2020, projected LULC maps for 2030–2040) plus fixed baseline layers: `DEM.tif`, `Slope.tif`, and binary buffers for hydrological (380 m), cultural (1000 m), and protected areas (1000 m). `Sensitivity_Analysis_Input_Data` provides multiplied buffer rasters (`_07x` to `_13x`, representing 0.7× to 1.3× multipliers) for sensitivity testing. The elevation threshold is derived dynamically via segmented regression on the DEM.
+
+**Workflow.** Run `LULC_Change_Analysis.R` for each period to compute transition matrices, gains, losses, persistence, and annual change rates (exported as CSVs). Execute `ChordDiagram_YYYY_YYYY.R` to visualise LULC flows. Run `Prioritization_2030.R` and `Prioritization_2040.R` (after setting input/output paths) to generate GeoTIFFs of priority zones, area statistics, and bar charts. Finally, run `Sensitivity_Analysis.R` to produce `OAT_Sensitivity.csv` and five parameter‑specific plots. Supporting materials include Google Earth Engine JavaScript code, a study area shapefile, and raw cultural site data.
+
+**Data attribution.** The raster datasets, shapefiles, and processed LULC maps are the intellectual property of the author. If you use any of these data in your research, publications, or derived products, you must cite: *Havyarimana, C. (2026). Spatial prioritization for sustainable freshwater basin management – Input data and reproducibility workflow. GitHub repository. [https://github.com/celestinhavy/BurundiTanganyikaBasin/].*
+
+**System requirements.** Minimum 30 GB free storage (contains 21 sensitivity layers, multiple LULC maps, DEM, slope, buffers, and all outputs). Intel i5 (or AMD/Apple Silicon equivalent) or higher recommended; raster operations are multi‑threaded and benefit from a modern quad‑core processor. 64‑bit OS and at least 8 GB RAM (16 GB preferred). Required R packages: `terra`, `segmented`, `sf`, `ggplot2`, `circlize`, `reshape2`, `dplyr`, `tidyr`.
+
+For questions or issues, contact **celestinhavy@student.uns.ac.id**.
+
+This version is **brief** (under 400 words) while keeping all essential information: workflow, data structure, baseline parameters, citation requirement, hardware specs, and contact details.
