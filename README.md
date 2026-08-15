@@ -11,5 +11,3 @@ This repository provides a fully reproducible workflow for LULC change analysis,
 **System requirements.** Minimum 30 GB free storage (contains 21 sensitivity layers, multiple LULC maps, DEM, slope, buffers, and all outputs). Intel i5 (or AMD/Apple Silicon equivalent) or higher recommended; raster operations are multi‑threaded and benefit from a modern quad‑core processor. 64‑bit OS and at least 8 GB RAM (16 GB preferred). Required R packages: `terra`, `segmented`, `sf`, `ggplot2`, `circlize`, `reshape2`, `dplyr`, `tidyr`.
 
 For questions or issues, contact **celestinhavy@student.uns.ac.id**.
-
-This version is **brief** (under 400 words) while keeping all essential information: workflow, data structure, baseline parameters, citation requirement, hardware specs, and contact details.
